@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101116" />
+    <meta name="description" content="一个可以看抽象小马动效、随机抽梗和听魔性小曲的静态迷因站。" />
+    <title>哈吉米小马广播站</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="回到哈吉米小马广播站首页">
+        <span class="brand-mark" aria-hidden="true">🐴</span>
+        <span>
+          <strong>哈吉米小马</strong>
+          <small>RADIO / MEME / 失控中</small>
+        </span>
+      </a>
+      <div class="live-pill"><span></span> LIVE · 无人值守</div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">一个没有必要但非常有必要的网络角落</p>
+          <h1 id="page-title">今天也要<br /><em>哈</em>起来。</h1>
+          <p class="hero-description">
+            小马在这里奔跑，音符在这里打滑，理智暂时寄存在别处。
+          </p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="random-button" type="button">
+              <span aria-hidden="true">⚡</span> 随机来一个
+            </button>
+            <button class="button button-ghost" id="toggle-play-button" type="button" disabled>
+              ▶ 播放当前
+            </button>
+          </div>
+          <p class="status-line" id="status-line" role="status" aria-live="polite">正在召唤小马……</p>
+        </div>
+
+        <div class="hero-sticker sticker-left" aria-hidden="true">哈<br />基<br />米</div>
+        <div class="hero-sticker sticker-right" aria-hidden="true">小马<br />在吗？</div>
+
+        <div class="stage-wrap">
+          <div class="stage-label"><span>NOW PLAYING</span><span id="stage-index">01 / 06</span></div>
+          <div class="stage" id="stage" data-visual="pony-gallop" aria-label="当前小马视觉内容">
+            <div class="stage-grid" aria-hidden="true"></div>
+            <div class="stage-scanline" aria-hidden="true"></div>
+            <div class="pony-scene" aria-hidden="true">
+              <div class="sun"></div>
+              <div class="cloud cloud-one"></div>
+              <div class="cloud cloud-two"></div>
+              <div class="pony-shadow"></div>
+              <div class="pony">
+                <div class="pony-tail"></div>
+                <div class="pony-body"></div>
+                <div class="pony-neck"></div>
+                <div class="pony-head"><span class="pony-eye"></span><span class="pony-muzzle"></span></div>
+                <div class="pony-leg leg-one"></div>
+                <div class="pony-leg leg-two"></div>
+                <div class="pony-leg leg-three"></div>
+                <div class="pony-leg leg-four"></div>
+                <div class="pony-wing"></div>
+              </div>
+              <div class="stage-caption" id="stage-caption">小马正在加载中</div>
+            </div>
+            <img class="stage-media is-hidden" id="stage-media" alt="" />
+            <div class="stage-error is-hidden" id="stage-error">
+              <span>素材跑路了。</span>
+              <a id="stage-source-link" href="#" target="_blank" rel="noreferrer">去原站看看</a>
+            </div>
+          </div>
+          <div class="stage-footer">
+            <span id="stage-tags">#小马 #抽象</span>
+            <span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="player-panel" aria-labelledby="player-title">
+        <div class="player-heading">
+          <p class="eyebrow">耳朵也不能闲着</p>
+          <h2 id="player-title">小马电台 <span>FM 404.0</span></h2>
+        </div>
+        <div class="player-main">
+          <div class="track-art" id="track-art" aria-hidden="true">🐎</div>
+          <div class="track-info">
+            <span class="track-kicker">CURRENT FREQUENCY</span>
+            <strong id="track-title">等待一匹小马</strong>
+            <span id="track-meta">点击“随机来一个”开始</span>
+          </div>
+          <button class="icon-button" id="play-button" type="button" aria-label="播放" disabled>▶</button>
+          <div class="volume-control">
+            <label for="volume">音量</label>
+            <input id="volume" type="range" min="0" max="1" step="0.01" value="0.7" />
+          </div>
+        </div>
+        <div class="progress-row">
+          <span id="current-time">0:00</span>
+          <input id="progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="播放进度" />
+          <span id="duration">0:00</span>
+        </div>
+        <audio id="audio" preload="metadata"></audio>
+        <p class="player-note" id="player-note">原创 Web Audio 模式 · 先点一下，浏览器才允许小马开嗓。</p>
+      </section>
+
+      <section class="library-section" aria-labelledby="library-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">从混沌里捞一点东西</p>
+            <h2 id="library-title">今日梗库存</h2>
+          </div>
+          <span class="item-count" id="item-count">0 条内容</span>
+        </div>
+        <nav class="filters" aria-label="内容筛选">
+          <button class="filter is-active" type="button" data-filter="all">全部</button>
+          <button class="filter" type="button" data-filter="gif">GIF / 动图</button>
+          <button class="filter" type="button" data-filter="meme">梗图</button>
+          <button class="filter" type="button" data-filter="audio">音乐</button>
+          <button class="filter" type="button" data-filter="combo">图音组合</button>
+        </nav>
+        <div class="library-grid" id="library-grid" aria-live="polite"></div>
+        <div class="empty-state is-hidden" id="empty-state">这个分类暂时空空如也，小马正在搬运。</div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>本项目是独立迷因实验，不代表 Bilibili、《赛马娘》或任何原作者与品牌。</p>
+      <a href="https://github.com/yingxin-star/xiaowei-1970290485" target="_blank" rel="noreferrer">在 GitHub 看源代码 ↗</a>
+    </footer>
+
+    <template id="card-template">
+      <article class="media-card">
+        <button class="card-button" type="button">
+          <span class="card-visual" aria-hidden="true">
+            <span class="card-visual-bg"></span>
+            <span class="card-emoji">🐴</span>
+            <span class="card-noise">HAHA</span>
+          </span>
+          <span class="card-body">
+            <span class="card-topline"><span class="card-type">ORIGINAL</span><span class="card-index">01</span></span>
+            <strong class="card-title">小马内容</strong>
+            <span class="card-tags">#小马</span>
+          </span>
+        </button>
+        <div class="card-footer">
+          <span class="card-source">原创内容</span>
+          <a class="card-link is-hidden" href="#" target="_blank" rel="noreferrer">来源 ↗</a>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

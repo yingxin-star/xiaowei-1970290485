@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "allowedHosts": [],
+  "items": [
+    {
+      "id": "pony-001",
+      "title": "小马正在尝试理解今天",
+      "type": "combo",
+      "visual": "pony-gallop",
+      "audio": { "kind": "synth", "pattern": "spark" },
+      "tags": ["小马", "原创", "动效"],
+      "sourceName": "本项目原创",
+      "licenseNote": "原创 CSS/SVG + Web Audio"
+    },
+    {
+      "id": "pony-002",
+      "title": "拒绝加班，尾巴先走一步",
+      "type": "meme",
+      "visual": "pony-spin",
+      "audio": { "kind": "synth", "pattern": "alarm" },
+      "tags": ["拒绝加班", "抽象"],
+      "sourceName": "本项目原创",
+      "licenseNote": "原创 CSS/SVG + Web Audio"
+    },
+    {
+      "id": "pony-003",
+      "title": "一口蜂蜜，进入超频模式",
+      "type": "combo",
+      "visual": "pony-honey",
+      "audio": { "kind": "synth", "pattern": "honey" },
+      "tags": ["哈基米", "超频", "音乐"],
+      "sourceName": "本项目原创",
+      "licenseNote": "原创 CSS/SVG + Web Audio"
+    },
+    {
+      "id": "pony-004",
+      "title": "弹幕正在从四面八方赶来",
+      "type": "gif",
+      "visual": "pony-bounce",
+      "audio": { "kind": "synth", "pattern": "glitch" },
+      "tags": ["弹幕", "GIF感", "小马"],
+      "sourceName": "本项目原创",
+      "licenseNote": "原创 CSS/SVG + Web Audio"
+    },
+    {
+      "id": "pony-005",
+      "title": "这匹马的方向感稍有欠缺",
+      "type": "meme",
+      "visual": "pony-orbit",
+      "audio": { "kind": "synth", "pattern": "orbit" },
+      "tags": ["迷路", "宇宙", "梗图"],
+      "sourceName": "本项目原创",
+      "licenseNote": "原创 CSS/SVG + Web Audio"
+    },
+    {
+      "id": "pony-006",
+      "title": "FM 404.0：理智暂时无法接通",
+      "type": "audio",
+      "visual": "pony-wave",
+      "audio": { "kind": "synth", "pattern": "wave" },
+      "tags": ["电台", "音乐", "404"],
+      "sourceName": "本项目原创",
+      "licenseNote": "原创 Web Audio"
+    }
+  ]
+}
